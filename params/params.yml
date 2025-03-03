@@ -1,0 +1,5 @@
+cf_api: "https://localhost --skip-ssl-validation"
+cf_user: "cf-admin"
+cf_org: "tutorial"
+cf_space: "dev"
+

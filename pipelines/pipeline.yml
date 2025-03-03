@@ -1,0 +1,31 @@
+resources:
+  - name: sample-apps-repo
+    type: git
+    source:
+      uri: ((my_github_repo))
+      branch: ((git_branch))
+      private_key: ((git_private_key))
+  - name: pcf-pushtool
+    type: docker-image
+    source:
+      repository: balloray/pcf-pushtool
+      tag: latest
+
+jobs:
+- name: push-sample-app
+  plan:
+  - in_parallel:
+    - get: sample-apps-repo
+    - get: pcf-pushtool
+  - task: pushing-sample-app
+    image: pcf-pushtool
+    file: sample-apps-repo/tasks/cf-push.yml
+    params:
+      CF_API: ((cf_api))
+      CF_USER: ((cf_user))
+      CF_PASS: ((cf_pass))
+      CF_ORG: ((cf_org))
+      CF_SPACE: ((cf_space))
+ 
+
+

@@ -1,0 +1,28 @@
+---
+platform: linux
+
+inputs:
+- name: sample-apps-repo
+
+params:
+  CF_USERNAME:
+  CF_PASS:
+  CF_API:
+  CF_ORG:
+  CF_SPACE:
+  CF_ACTION:
+  APP_LABEL:
+  APP_NAME:
+  SERVICE_NAME:
+run:
+  path: bash
+  args:
+  - -exc
+  - |
+    set +x
+    cf api ${CF_API}
+    cf auth ${CF_USER}
+    cf target -o ${CF_ORG} -s ${CF_SPACE}
+    cd sample-apps-repo
+    cf apps
+
