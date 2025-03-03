@@ -2,4 +2,6 @@ cf_api: "https://localhost --skip-ssl-validation"
 cf_user: "cf-admin"
 cf_org: "tutorial"
 cf_space: "dev"
+my_github_repo: "https://github.com/tnash99/sample-apps.git"
+git_branch: "main"
 

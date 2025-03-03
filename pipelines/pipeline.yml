@@ -4,7 +4,7 @@ resources:
     source:
       uri: ((my_github_repo))
       branch: ((git_branch))
-      private_key: ((git_private_key))
+      #      private_key: ((git_private_key))
   - name: pcf-pushtool
     type: docker-image
     source:
